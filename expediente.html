@@ -8,129 +8,148 @@
   <script>
     (function(){ try { if(localStorage.getItem('theme')==='dark') document.documentElement.classList.add('dark'); } catch(e){} })();
   </script>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="header">
+    <nav>
+      <div class="subtitle-nav">Edição Especial #1 • MOOCA</div>
+      <div class="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="editorial.html">Editorial</a>
+        <a href="charge.html">Charge</a>
+        <a href="expediente.html">Expediente</a>
+        <a href="">Como Ajudar</a>
+      </div>
+    </nav>
+  
     <div class="brand">
       <div class="title">Jornal Backstage</div>
-      <div class="subtitle">Edição Especial #1 • MOOCA</div>
     </div>
-
-    <nav>
-      <a href="index.html">Capa</a>
-      <a href="expediente.html">Expediente</a>
-      <a href="charge.html">Charge</a>
-      <a href="editorial.html">Editorial</a>
-    </nav>
 
     <button id="themeToggle" aria-label="Alternar tema">🌙</button>
   </header>
 
   <main class="container">
     <div class="expediente-info">
-        <p><strong>Dados do Jornal</strong></p>
+        <h2><p><strong>Dados do Jornal</strong></p></h2
         <p><strong>Escrito e distribuído por Agência Backstage</strong></p>
-        <p><strong>Email:</strong> backstageuninove@gmail.com</p>
-        <p><strong>Celular:</strong> (11) 95148-0233</p>
-        <p><strong>Publicado online semanalmente</strong></p>
-        <p><strong>Edição Especial 1 - Ano 2025</strong></p>
+
+        <p>
+            <span class="fas fa-envelope contact-icon"></span> 
+            <strong>Email:</strong> backstageuninove@gmail.com
+        </p>
+        
+        <p>
+            <i class="contact-icon fa-brands fa-whatsapp" aria-hidden="true"></i> 
+            <strong>Celular/WhatsApp:</strong> (11) 95148-0233
+        </p>
+        
+        <p>
+            <span class="fas fa-calendar-alt contact-icon"></span> 
+            <strong>Publicado online semanalmente
+        </p>
     </div>
 
-    <section class="expediente-grid">
-      <!-- 1 -->
+    <h2 style="margin-top: 30px; margin-bottom: 20px;">Funções e Integrantes</h2>
+
+    <section class="pessoas-grid">
+      
+      <h3>Editora-chefe</h3>
       <div class="pessoa">
-        <img src="https://picsum.photos/seed/p1/300/300" alt="Foto 1">
+        <div class="photo-container">
+          <img src="imgs/expediente/isabela.buzato.png" alt="Isabela Buzato">
+        </div>
         <div class="info">
-          <p><strong>Nome curto:</strong> Ana Costa</p>
-          <p><strong>Nome completo:</strong> Ana Beatriz Costa</p>
-          <p><strong>RA:</strong> 2025001</p>
-          <p><strong>Email:</strong> ana.costa@backstage.com</p>
+          <p>Isabela Buzato</p>
+          <p>RA: 925103552</p>
+          <p>isabelafbuzato@uni9.edu.br</p>
         </div>
       </div>
 
-      <!-- 2 -->
+      <h3>Sub-editores/Editores Assistentes</h3>
       <div class="pessoa">
-        <img src="https://picsum.photos/seed/p2/300/300" alt="Foto 2">
+        <div class="photo-container">
+          <img src="imgs/expediente/eduardo.silva.png" alt="Eduardo Silva">
+        </div>
         <div class="info">
-          <p><strong>Nome curto:</strong> Bruno Lima</p>
-          <p><strong>Nome completo:</strong> Bruno Henrique Lima</p>
-          <p><strong>RA:</strong> 2025002</p>
-          <p><strong>Email:</strong> bruno.lima@backstage.com</p>
+          <p>Eduardo Amâncio</p>
+          <p>RA: 924112827</p>
+          <p>eduardo.amancio@uni9.edu.br</p>
+        </div>
+      </div>
+      <div class="pessoa">
+        <div class="photo-container">
+          <img src="imgs/expediente/beatriz.carvalho.png" alt="Beatriz Carvalho">
+        </div>
+        <div class="info">
+          <p>Beatriz Carvalho</p>
+          <p>RA: 925109687</p>
+          <p>beatriznncarvalho@uni9.edu.br</p>
         </div>
       </div>
 
-      <!-- 3 -->
+      <h3>Repórteres/Redatores</h3>
       <div class="pessoa">
-        <img src="https://picsum.photos/seed/p3/300/300" alt="Foto 3">
+        <div class="photo-container">
+          <img src="imgs/expediente/celso.junior.png" alt="Celso Junior">
+        </div>
         <div class="info">
-          <p><strong>Nome curto:</strong> Carla Dias</p>
-          <p><strong>Nome completo:</strong> Carla Mendes Dias</p>
-          <p><strong>RA:</strong> 2025003</p>
-          <p><strong>Email:</strong> carla.dias@backstage.com</p>
+          <p>Celso Junior</p>
+          <p>RA: 925103494</p>
+          <p>celso.oliveirajunior@uni9.edu.br</p>
+        </div>
+      </div>
+      <div class="pessoa">
+        <div class="photo-container">
+          <img src="imgs/expediente/mariana.barbosa.png" alt="Mariana Barbosa">
+        </div>
+        <div class="info">
+          <p>Mariana Manojo</p>
+          <p>RA: 924101092</p>
+          <p>mariana.manojo@uni9.edu.br</p>
+        </div>
+      </div>
+      <div class="pessoa">
+        <div class="photo-container">
+          <img src="imgs/expediente/guilherme.santos.png" alt="Guilherme Santos">
+        </div>
+        <div class="info">
+          <p>Guilherme Braga</p>
+          <p>RA: 924203020</p>
+          <p>braga.guilherme@uni9.edu.br</p>
         </div>
       </div>
 
-      <!-- 4 (local image you provided) -->
+      <h3>Produtores de Conteúdo Multimídia (infográficos/charge)</h3>
       <div class="pessoa">
-        <img src="/mnt/data/3ba3fa12-428f-421e-914f-0edf05a4de36.png" alt="Foto 4 (local)">
+        <div class="photo-container">
+          <img src="imgs/expediente/isabella.silva.png" alt="Isabella Silva">
+        </div>
         <div class="info">
-          <p><strong>Nome curto:</strong> Daniel Rocha</p>
-          <p><strong>Nome completo:</strong> Daniel Alves Rocha</p>
-          <p><strong>RA:</strong> 2025004</p>
-          <p><strong>Email:</strong> daniel.rocha@backstage.com</p>
+          <p>Isabella Quintiliano</p>
+          <p>RA: 924104754</p>
+          <p>i.quintiliano@uni9.edu.br</p>
         </div>
       </div>
-
-      <!-- 5 -->
       <div class="pessoa">
-        <img src="https://picsum.photos/seed/p5/300/300" alt="Foto 5">
-        <div class="info">
-          <p><strong>Nome curto:</strong> Elisa Moreira</p>
-          <p><strong>Nome completo:</strong> Elisa Fernandes Moreira</p>
-          <p><strong>RA:</strong> 2025005</p>
-          <p><strong>Email:</strong> elisa.moreira@backstage.com</p>
+        <div class="photo-container">
+          <img src="imgs/expediente/pedro.silva.png" alt="Pedo Silva">
         </div>
-      </div>
-
-      <!-- 6 -->
-      <div class="pessoa">
-        <img src="https://picsum.photos/seed/p6/300/300" alt="Foto 6">
         <div class="info">
-          <p><strong>Nome curto:</strong> Felipe Santos</p>
-          <p><strong>Nome completo:</strong> Felipe dos Santos</p>
-          <p><strong>RA:</strong> 2025006</p>
-          <p><strong>Email:</strong> felipe.santos@backstage.com</p>
-        </div>
-      </div>
-
-      <!-- 7 -->
-      <div class="pessoa">
-        <img src="https://picsum.photos/seed/p7/300/300" alt="Foto 7">
-        <div class="info">
-          <p><strong>Nome curto:</strong> Gabriela P.</p>
-          <p><strong>Nome completo:</strong> Gabriela Pereira</p>
-          <p><strong>RA:</strong> 2025007</p>
-          <p><strong>Email:</strong> gabriela.p@backstage.com</p>
-        </div>
-      </div>
-
-      <!-- 8 -->
-      <div class="pessoa">
-        <img src="https://picsum.photos/seed/p8/300/300" alt="Foto 8">
-        <div class="info">
-          <p><strong>Nome curto:</strong> Hugo Carvalho</p>
-          <p><strong>Nome completo:</strong> Hugo Carvalho Neto</p>
-          <p><strong>RA:</strong> 2025008</p>
-          <p><strong>Email:</strong> hugo.carvalho@backstage.com</p>
+          <p>Pedro da Silva</p>
+          <p>RA: 924115457</p>
+          <p>Pedro.paulo.silva@uni9.edu.br</p>
         </div>
       </div>
 
     </section>
   </main>
 
-  <footer class="footer">Jornal Backstage — © 2025</footer>
+  <footer class="footer">
+    Jornal Backstage — Edição Especial #1 • MOOCA — © 2025
+  </footer>
 
   <script src="script.js"></script>
 </body>
