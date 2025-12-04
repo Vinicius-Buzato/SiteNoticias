@@ -37,3 +37,43 @@ function updateThemeButton(){
     themeBtn.setAttribute('aria-label','Ativar tema escuro');
   }
 }
+
+function setupHighlightObserver() {
+    // Seleciona todos os elementos que têm a classe 'highlight'
+    const highlights = document.querySelectorAll('.highlight');
+
+    // Se não houver elementos, sai da função
+    if (highlights.length === 0) return; 
+
+    // Opções para o observador:
+    // O threshold de 0.8 significa que o efeito será acionado quando 80% do elemento estiver visível
+    const observerOptions = {
+        root: null, 
+        rootMargin: '0px',
+        threshold: 0.8 
+    };
+
+    const highlightObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Quando o elemento está visível, adiciona a classe que aciona o CSS
+                entry.target.classList.add('is-visible');
+                // Opcional: Para a animação ocorrer apenas uma vez, pare de observar
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    // Começa a observar cada elemento de destaque
+    highlights.forEach(highlight => {
+        highlightObserver.observe(highlight);
+    });
+}
+
+// Chame a nova função dentro do DOMContentLoaded, logo após o seu código do themeToggle:
+document.addEventListener('DOMContentLoaded', () => {
+    // ... (código existente do themeToggle) ...
+
+    // NOVO: Inicializa o observador de destaque de texto
+    setupHighlightObserver();
+});
