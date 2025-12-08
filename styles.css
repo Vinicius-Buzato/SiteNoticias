@@ -15,8 +15,9 @@
   --card: #ffffff;
   --bg: #f7f7f8;
   --radius: 10px;
-  /* NOVO: Cor de fundo para a "faixa" cinza no expediente */
   --card-strip: #e0e0e0;
+  /* NOVO: Vermelho mais claro para botões de ação (solicitado) */
+  --light-red: #ee6565;
 }
 
 html.dark {
@@ -281,6 +282,22 @@ h2 {
     font-style: normal; /* Remove o itálico apenas do nome */
 }
 
+.article a:not(.btn):not(.btn-doar2), .comoajudar a:not(.btn):not(.btn-doar2) {
+    color: var(--black); /* Cor preta por padrão */
+    text-decoration: none; /* Remove o sublinhado */
+    font-weight: 600; /* Deixa em negrito para destacar */
+    transition: color 0.2s ease;
+}
+
+html.dark .article a:not(.btn):not(.btn-doar2), html.dark .comoajudar a:not(.btn):not(.btn-doar2) {
+    color: #e8e8e8; /* Cor clara no modo escuro */
+}
+
+.article a:not(.btn):not(.btn-doar2):hover, .comoajudar a:not(.btn):not(.btn-doar2):hover {
+    text-decoration: underline; /* Opcional: Adiciona sublinhado ao passar o mouse */
+    opacity: 0.8;
+}
+
 /* Ajuste no lead para melhor espaçamento com a nova linha de info */
 .article p.lead {
     margin-bottom: 5px;
@@ -476,7 +493,6 @@ html.dark .pessoa .info p {
   line-height: 1;
 }
 
-
 /* Ajuste o .expediente-info existente para usar o novo estilo */
 .expediente-info p {
  margin: 4px 0;
@@ -552,6 +568,10 @@ a.btn{
     margin-bottom: 40px; 
 }
 
+.comoajudar h2 {
+  margin-top: 60px; /* Reduz a margem superior se for o primeiro elemento dentro do <main> */
+}
+
 /* small helpers */
 .kicker{
   display:inline-block;
@@ -561,6 +581,107 @@ a.btn{
   color:var(--white);
   font-weight:700;
   font-size:13px;
+}
+
+.btn-doar {
+    display: block;
+    width: 100%;
+    max-width: 300px; /* Limita a largura para ficar centralizado */
+    padding: 12px 20px;
+    background: var(--red);
+    color: var(--white);
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    transition: background-color 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.btn-doar2 {
+    display: block; /* Garante que ocupe a largura total */
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+    border-radius: var(--radius);
+    background-color: var(--light-red); /* Usa o novo vermelho mais claro */
+    color: var(--white);
+    font-weight: 700;
+    text-decoration: none; /* Remove underline para links */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: 1em; /* Garante tamanho de fonte consistente */
+}
+
+.btn-doar2:hover {
+    background-color: #d1414d; /* Cor um pouco mais escura no hover */
+}
+
+.btn-doar:hover {
+    background: #a51c2a; /* Vermelho um pouco mais escuro no hover */
+}
+
+/* NOVO: Classe para texto em vermelho */
+.text-red {
+    color: var(--red);
+    font-weight: 600;
+}
+
+/* NOVO: Estilo para a imagem do QR Code e a área do PIX */
+/* Removido o background: var(--card) para usar a cor do fundo da página */
+.pix-container {
+    text-align: center;
+    /* Removido: background: var(--card); */ 
+    border-radius: var(--radius);
+}
+
+.pix-container img {
+    max-width: 250px;
+    height: auto;
+    border-radius: 4px;
+    border: 1px solid var(--muted);
+    margin-bottom: 10px;
+}
+
+/* Estilo do Dropdown */
+/* Removido o background e a borda para integrar com o fundo da página (como solicitado) */
+.dropdown-content {
+    /* display: none; */ 
+    overflow: hidden; 
+    max-height: 0; /* Começa com altura zero */
+    /* Garante a transição suave para max-height */
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out; 
+    margin-top: 5px; 
+}
+
+/* Classe de animação para o PIX/QR Code */
+.pix-details {
+    overflow: hidden;
+    max-height: 0;
+    /* Garante a transição suave para max-height */
+    transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+    padding: 0 15px; /* Adiciona padding lateral, vertical é controlado pelo slide */
+    margin-top: 20px;
+}
+
+/* Conteúdo interno do dropdown e PIX para garantir padding correto quando estiver visível */
+.dropdown-content p, .pix-details p {
+    padding: 5px 0;
+    margin: 0;
+}
+.dropdown-content p:first-child, .pix-details p:first-child {
+    padding-top: 15px; /* Adiciona um espaço no topo */
+}
+.dropdown-content p:last-child, .pix-details p:last-child {
+    padding-bottom: 15px; /* Adiciona um espaço na base */
 }
 
 /* dark mode overrides */
@@ -576,4 +697,8 @@ html.dark body{ color: #e8e8e8; }
 @media(max-width:520px){
   .hero img{ height:260px; }
   .hero .hero-content{ left:14px; right:14px; bottom:14px; padding:12px; max-width:calc(100% - 28px); font-size:14px}
+}
+
+.comoajudar[id] {
+    scroll-margin-top: 100px; /* Valor seguro para compensar a altura do header fixo (~70px) */
 }
