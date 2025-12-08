@@ -196,5 +196,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 3. Setup do Highlight Observer ---
     setupHighlightObserver();
+    // --- 4. Configuração do Menu Mobile (NOVO) ---
+        const mobileBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.getElementById('navLinks');
 
-}); // Fim do DOMContentLoaded
+        if (mobileBtn && navLinks) {
+            mobileBtn.addEventListener('click', () => {
+                // Alterna a classe 'active' para mostrar/esconder o menu
+                navLinks.classList.toggle('active');
+                
+                // Muda o ícone do botão (opcional)
+                if (navLinks.classList.contains('active')) {
+                    mobileBtn.textContent = '✕'; // X para fechar
+                } else {
+                    mobileBtn.textContent = '☰'; // Hambúrguer para abrir
+                }
+            });
+
+            // Fechar o menu ao clicar em um link (melhora usabilidade)
+            const links = navLinks.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    mobileBtn.textContent = '☰';
+                });
+            });
+        };
+})
