@@ -688,35 +688,35 @@ html.dark body{ color: #e8e8e8; }
    Mudamos de 768px para 1100px.
    Isso cobre Tablets e Laptops pequenos onde o menu estava quebrando.
 */
+/* --- INICIO DO BLOCO MOBILE/TABLET (ATUALIZADO) --- */
 @media (max-width: 1100px) {
   
-  /* Layout do Header Mobile */
+  /* Layout do Header: Botão | Logo | Lua */
   .header {
     display: grid;
-    grid-template-columns: 50px 1fr 50px;
+    grid-template-columns: 50px 1fr 50px; /* Mantém estrutura de 3 colunas */
     align-items: center;
     padding: 0 10px;
     height: 70px;
   }
 
-  /* Exibir botão menu */
+  /* Exibir botão menu hambúrguer */
   .mobile-menu-btn {
     display: block;
     justify-self: start;
     z-index: 1001;
   }
 
-  /* Título Centralizado */
+  /* Centralização da Marca/Logo */
   .header .brand {
     justify-self: center;
     width: 100%;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .header .brand a.title-link {
-    font-size: 24px; /* Ajuste opcional: diminui um pouco o título nessas telas */
-  }
-  
-  /* Esconde subtítulo do topo */
+
+  /* Esconde subtítulo textual antigo */
   .header .subtitle-nav { display: none; }
 
   /* Posiciona botão Lua */
@@ -724,7 +724,8 @@ html.dark body{ color: #e8e8e8; }
     justify-self: end;
   }
 
-  /* MENU GAVETA (Escondido lateralmente) */
+  /* MENU GAVETA (SIDEBAR) */
+  /* Removemos o posicionamento relativo anterior da nav */
   .header nav {
     position: absolute; 
     width: 0; height: 0; 
@@ -732,44 +733,63 @@ html.dark body{ color: #e8e8e8; }
 
   .nav-links {
     position: fixed;
-    top: 70px;
-    left: -100%;
-    width: 100%;
+    top: 70px; /* Logo abaixo do header */
+    left: -320px; /* Escondido para a esquerda (mesmo valor da width) */
+    
+    /* AQUI ESTÁ A MUDANÇA PRINCIPAL DO MENU: */
+    width: 300px; /* Largura fixa, estilo barra lateral */
+    max-width: 85vw; /* Segurança para celulares muito pequenos */
     height: calc(100vh - 70px);
-    background: var(--card);
+    
+    background: var(--card); /* Cor do fundo */
+    border-right: 1px solid var(--card-strip); /* Borda sutil */
+    box-shadow: 4px 0 15px rgba(0,0,0,0.1); /* Sombra para destacar do fundo */
+    
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding-top: 30px;
-    transition: left 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    display: flex;
+    transition: left 0.3s ease-in-out; /* Animação suave */
     z-index: 999;
     overflow-y: auto;
   }
 
+  /* Quando ativo, ele vem para a posição 0 */
   .nav-links.active {
     left: 0;
   }
 
-  /* Estilo dos links no mobile */
+  /* Links dentro do menu lateral */
   .header .nav-links a {
     color: var(--black) !important;
-    font-size: 18px;
-    padding: 15px 0;
-    width: 85%;
-    text-align: center;
+    font-size: 16px; /* Fonte levemente menor para ficar elegante */
+    padding: 15px 20px;
+    width: 100%; /* Ocupa a largura da gaveta */
+    text-align: left; /* Alinhado à esquerda fica melhor em gavetas */
     border-bottom: 1px solid var(--card-strip);
     white-space: normal;
   }
 
-  /* Dark mode no mobile */
+  /* Dark mode */
   html.dark .header .nav-links a {
     color: var(--white) !important;
   }
 
-  /* Ajustes gerais de layout mobile */
+  /* Ajustes gerais */
   .hero img { height: 240px; }
   .container { padding: 0 15px; }
   .pix-container img { max-width: 100%; }
+}
+/* --- FIM DO BLOCO MOBILE/TABLET --- */
+
+/* ADICIONE ISSO FORA DO @MEDIA (NO FINAL DO ARQUIVO) PARA A LOGO FUNCIONAR EM DESKTOP TAMBÉM */
+.header-logo {
+    max-height: 50px; /* Altura máxima para não estourar o header de 70px */
+    width: auto;      /* Mantém a proporção */
+    display: block;
+    transition: opacity 0.2s;
+}
+.header-logo:hover {
+    opacity: 0.9;
 }
