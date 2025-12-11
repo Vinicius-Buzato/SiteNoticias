@@ -98,9 +98,11 @@ h2 {
 
 .nav-links {
     display: flex;
-    gap: 20px; /* Espaço entre os links */
+    flex-wrap: wrap;       /* O SEGREDINHO: Permite quebrar linha */
+    align-content: center; /* Centraliza o bloco verticalmente no header de 70px */
+    gap: 2px 20px;         /* 2px de espaço vertical, 20px entre os links */
+    height: 100%;          /* Garante que use a altura do header */
 }
-
 .nav-links a {
     color: var(--white);
     text-decoration: none;
@@ -108,12 +110,26 @@ h2 {
     font-size: 15px;
     position: relative;
     transition: opacity 0.2s;
+    line-height: 1.2;
 }
+
 .nav-links a:hover { opacity: 0.8; }
 
 /* Esconde elementos mobile no desktop */
 .mobile-menu-btn { display: none; }
-.subtitle-nav { display: none; }
+
+.subtitle-nav {
+    display: block;        /* Torna visível */
+    width: 100%;           /* Força ocupar a linha inteira (fica em cima) */
+    font-size: 11px;       /* Fonte bem menor */
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: rgb(255, 255, 255); /* Cor mais suave/transparente */
+    text-align: left;      /* Justificado à esquerda */
+    line-height: 1;        /* Remove espaçamento extra */
+    margin-bottom: 8px;    /* Um respiro minúsculo antes dos links */
+}
 
 /* Botão Tema (Direita) */
 #themeToggle {
@@ -716,9 +732,6 @@ html.dark body{ color: #e8e8e8; }
     align-items: center;
   }
 
-  /* Esconde subtítulo textual antigo */
-  .header .subtitle-nav { display: none; }
-
   /* Posiciona botão Lua */
   #themeToggle {
     justify-self: end;
@@ -732,6 +745,9 @@ html.dark body{ color: #e8e8e8; }
   }
 
   .nav-links {
+    flex-wrap: nowrap; 
+    align-content: flex-start; 
+    gap: 0;
     position: fixed;
     top: 70px; /* Logo abaixo do header */
     left: -320px; /* Escondido para a esquerda (mesmo valor da width) */
@@ -755,6 +771,19 @@ html.dark body{ color: #e8e8e8; }
     overflow-y: auto;
   }
 
+  .header .subtitle-nav {
+    display: block !important; /* FORÇA a visibilidade, resolvendo o problema! */
+    width: 100%;
+    text-align: center;
+    padding: 20px 15px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--card-strip);
+    background: transparent;
+    order: -1; 
+    color: var(--black);
+  }
+
   /* Quando ativo, ele vem para a posição 0 */
   .nav-links.active {
     left: 0;
@@ -774,6 +803,11 @@ html.dark body{ color: #e8e8e8; }
   /* Dark mode */
   html.dark .header .nav-links a {
     color: var(--white) !important;
+  }
+
+  html.dark .header .subtitle-nav {
+    color: var(--white); 
+    background: transparent;
   }
 
   /* Ajustes gerais */
